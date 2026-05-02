@@ -623,7 +623,7 @@ const form = reactive({
 const fetchFundAccounts = async () => {
   try {
     const res = await request.get('/pricing/funds')
-    fundAccounts.value = res.data || []
+    fundAccounts.value = res.data.list || []
   } catch (error) {
     console.error(error)
   }
