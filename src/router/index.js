@@ -139,69 +139,67 @@ const routes = [
         path: '/pricing',
         name: 'Pricing',
         component: () => import('@/views/pricing/Pricing.vue'),
-        meta: { title: '收费管理' },
-        children: [
-          {
-            path: 'ads/splash',
-            name: 'PricingAdsSplash',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '平台广告收费 - 收费规则设置 - 开屏广告' }
-          },
-          {
-            path: 'ads/banner',
-            name: 'PricingAdsBanner',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '平台广告收费 - 收费规则设置 - 轮播图广告' }
-          },
-          {
-            path: 'ads/demand-card',
-            name: 'PricingAdsDemandCard',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '平台广告收费 - 收费规则设置 - 需求卡片广告' }
-          },
-          {
-            path: 'ads/hall-banner',
-            name: 'PricingAdsHallBanner',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '平台广告收费 - 收费规则设置 - 大厅横幅广告' }
-          },
-          {
-            path: 'ads/profile',
-            name: 'PricingAdsProfile',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '平台广告收费 - 收费规则设置 - 个人中心广告' }
-          },
-          {
-            path: 'ads-funds',
-            name: 'PricingAdsFunds',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '平台广告收费 - 资金账户管理' }
-          },
-          {
-            path: 'ads-invitation',
-            name: 'PricingAdsInvitation',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '平台广告收费 - 邀请奖励规则' }
-          },
-          {
-            path: 'services',
-            name: 'PricingServices',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '增值服务收费 - 收费规则设置' }
-          },
-          {
-            path: 'services-funds',
-            name: 'PricingServicesFunds',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '增值服务收费 - 资金账户管理' }
-          },
-          {
-            path: 'services-invitation',
-            name: 'PricingServicesInvitation',
-            component: () => import('@/views/pricing/Pricing.vue'),
-            meta: { title: '增值服务收费 - 邀请奖励规则' }
-          }
-        ]
+        meta: { title: '收费管理' }
+      },
+      {
+        path: '/pricing/ads/splash',
+        name: 'PricingAdsSplash',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '平台广告收费 - 收费规则设置 - 开屏广告' }
+      },
+      {
+        path: '/pricing/ads/banner',
+        name: 'PricingAdsBanner',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '平台广告收费 - 收费规则设置 - 轮播图广告' }
+      },
+      {
+        path: '/pricing/ads/demand-card',
+        name: 'PricingAdsDemandCard',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '平台广告收费 - 收费规则设置 - 需求卡片广告' }
+      },
+      {
+        path: '/pricing/ads/hall-banner',
+        name: 'PricingAdsHallBanner',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '平台广告收费 - 收费规则设置 - 大厅横幅广告' }
+      },
+      {
+        path: '/pricing/ads/profile',
+        name: 'PricingAdsProfile',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '平台广告收费 - 收费规则设置 - 个人中心广告' }
+      },
+      {
+        path: '/pricing/ads-funds',
+        name: 'PricingAdsFunds',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '平台广告收费 - 资金账户管理' }
+      },
+      {
+        path: '/pricing/ads-invitation',
+        name: 'PricingAdsInvitation',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '平台广告收费 - 邀请奖励规则' }
+      },
+      {
+        path: '/pricing/services',
+        name: 'PricingServices',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '增值服务收费 - 收费规则设置' }
+      },
+      {
+        path: '/pricing/services-funds',
+        name: 'PricingServicesFunds',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '增值服务收费 - 资金账户管理' }
+      },
+      {
+        path: '/pricing/services-invitation',
+        name: 'PricingServicesInvitation',
+        component: () => import('@/views/pricing/Pricing.vue'),
+        meta: { title: '增值服务收费 - 邀请奖励规则' }
       },
       {
         path: '/open-api/tencent-map',

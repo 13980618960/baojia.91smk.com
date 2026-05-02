@@ -1198,6 +1198,9 @@ const init = () => {
   } else if (path === '/pricing/services-invitation') {
     currentView.value = 'services-invitation'
     fetchServiceInvitations()
+  } else if (path === '/pricing') {
+    currentView.value = 'ads-funds'
+    fetchFunds()
   }
 }
 
