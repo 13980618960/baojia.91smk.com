@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="pricing">
     <el-card>
       <template #header>
@@ -665,9 +665,12 @@
 </template>
 
 <script setup>
-import { ref, computed, reactive } from 'vue'
+import { ref, computed, reactive, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import request from '@/utils/request'
 import { Wallet, ArrowUp, ArrowDown, User, Folder } from '@element-plus/icons-vue'
+
+const route = useRoute()
 
 const currentView = ref('ads-funds')
 const currentAdType = ref(null)
@@ -782,7 +785,7 @@ const filteredUserList = computed(() => {
 })
 
 const getCurrentAdType = () => {
-  const path = window.location.pathname
+  const path = route.path
   const adTypeMap = {
     '/pricing/ads/splash': { type: 1, name: '开屏广告', position: '首页开屏' },
     '/pricing/ads/banner': { type: 2, name: '轮播图广告', position: '首页轮播图' },
@@ -1175,7 +1178,7 @@ const fetchServiceInvitations = async () => {
 }
 
 const init = () => {
-  const path = window.location.pathname
+  const path = route.path
   if (path.startsWith('/pricing/ads/')) {
     currentView.value = 'ads'
     currentAdType.value = getCurrentAdType()
@@ -1198,7 +1201,13 @@ const init = () => {
   }
 }
 
-init()
+onMounted(() => {
+  init()
+})
+
+watch(() => route.path, () => {
+  init()
+})
 </script>
 
 <style scoped>
