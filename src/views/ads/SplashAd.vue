@@ -77,6 +77,7 @@
         <div class="card-header sticky-card-header">
           <span>开屏广告列表</span>
           <el-button type="primary" @click="handleAdd">新增广告</el-button>
+          <el-button type="info" @click="testFundAccounts">测试获取资金账户</el-button>
         </div>
       </template>
       
@@ -633,6 +634,29 @@ const fetchFundAccounts = async () => {
   } catch (error) {
     console.error('获取资金账户失败:', error)
     ElMessage.error('获取资金账户失败，请检查登录状态')
+  }
+}
+
+const testFundAccounts = async () => {
+  try {
+    console.log('=== 测试获取资金账户 ===')
+    console.log('当前fundAccounts值:', fundAccounts.value)
+    console.log('localStorage中的token:', localStorage.getItem('admin_token'))
+    
+    const res = await request.get('/pricing/funds')
+    console.log('接口返回:', JSON.stringify(res, null, 2))
+    
+    fundAccounts.value = res.data?.list || []
+    console.log('赋值后fundAccounts:', fundAccounts.value)
+    
+    if (fundAccounts.value.length > 0) {
+      ElMessage.success(`成功获取到 ${fundAccounts.value.length} 个资金账户`)
+    } else {
+      ElMessage.warning('获取到的资金账户列表为空')
+    }
+  } catch (error) {
+    console.error('测试失败:', error)
+    ElMessage.error(`测试失败: ${error.message}`)
   }
 }
 
