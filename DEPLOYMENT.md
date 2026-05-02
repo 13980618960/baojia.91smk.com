@@ -195,6 +195,7 @@ mysql -u baojia_ai -p -h localhost baojia_ai
 | 3 | `--production` 参数警告 | 参数已废弃 | 使用 `--omit=dev` 替代 |
 | 4 | `Cannot find module 'express'` | npm install 失败 | 删除 node_modules 后重新安装 |
 | 5 | `Failed to resolve module specifier "vue"` | Vite 构建配置错误 | 移除 `format: 'es'` 配置，设置 `target: 'es2015'` |
+| 6 | `ENOENT: no such file or directory` | 上传目录不存在 | 创建 `uploads` 目录并设置权限 `mkdir -p uploads && chmod -R 755 uploads` |
 
 ### 关键配置
 
