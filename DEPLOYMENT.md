@@ -179,6 +179,8 @@ mysql -u baojia_ai -p -h localhost baojia_ai
 | 2026-05-02 | 首次部署完成 | 配置自动部署脚本 |
 | 2026-05-02 | 修复收费管理菜单 | 修复 API 路由和前端路由 |
 | 2026-05-02 | 后端依赖修复 | 更换 npm 源解决 axios 包下载失败 |
+| 2026-05-02 | 前端构建修复 | 修复 vite.config.js 中的 es 模块格式配置 |
+| 2026-05-02 | ✅ 项目成功部署 | 前后端服务均正常运行 |
 
 ---
 
@@ -192,6 +194,7 @@ mysql -u baojia_ai -p -h localhost baojia_ai
 | 2 | `pm2: command not found` | PM2 不在系统 PATH 中 | 使用完整路径 `/www/server/nodejs/v16.20.2/bin/pm2` |
 | 3 | `--production` 参数警告 | 参数已废弃 | 使用 `--omit=dev` 替代 |
 | 4 | `Cannot find module 'express'` | npm install 失败 | 删除 node_modules 后重新安装 |
+| 5 | `Failed to resolve module specifier "vue"` | Vite 构建配置错误 | 移除 `format: 'es'` 配置，设置 `target: 'es2015'` |
 
 ### 关键配置
 
