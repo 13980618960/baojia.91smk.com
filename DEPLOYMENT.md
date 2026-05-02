@@ -178,9 +178,54 @@ mysql -u baojia_ai -p -h localhost baojia_ai
 |------|------|------|
 | 2026-05-02 | 首次部署完成 | 配置自动部署脚本 |
 | 2026-05-02 | 修复收费管理菜单 | 修复 API 路由和前端路由 |
+| 2026-05-02 | 后端依赖修复 | 更换 npm 源解决 axios 包下载失败 |
 
 ---
 
-**文档版本**: v1.0  
+## 📝 部署备注
+
+### 问题记录
+
+| 序号 | 问题描述 | 原因 | 解决方案 |
+|------|----------|------|----------|
+| 1 | `axios@1.15.2` 包找不到 | npmmirror 镜像源问题 | `npm config set registry https://registry.npmmirror.com` |
+| 2 | `pm2: command not found` | PM2 不在系统 PATH 中 | 使用完整路径 `/www/server/nodejs/v16.20.2/bin/pm2` |
+| 3 | `--production` 参数警告 | 参数已废弃 | 使用 `--omit=dev` 替代 |
+| 4 | `Cannot find module 'express'` | npm install 失败 | 删除 node_modules 后重新安装 |
+
+### 关键配置
+
+```bash
+# PM2 完整路径
+/www/server/nodejs/v16.20.2/bin/pm2
+
+# npm 推荐配置
+npm config set registry https://registry.npmmirror.com
+npm config set cache /tmp/npm-cache
+```
+
+### 快速同步命令
+
+```bash
+# 前端更新（静态文件）
+cd /www/wwwroot/baojia.91smk.com && git pull
+
+# 前端更新（需要构建）
+cd /www/wwwroot/baojia.91smk.com && git pull && npm install --omit=dev && npm run build
+
+# 后端更新
+cd /www/wwwroot/baojiaapi.91smk.com && git pull && npm install --omit=dev && /www/server/nodejs/v16.20.2/bin/pm2 restart baojia-api
+```
+
+### 注意事项
+
+1. **Node.js 版本**：前端构建必须使用 v16.20.2
+2. **PM2 命令**：宝塔终端需使用完整路径
+3. **npm 参数**：使用 `--omit=dev` 替代过时的 `--production`
+4. **npm 源**：如遇包下载失败，切换 npmmirror 源
+
+---
+
+**文档版本**: v1.1  
 **最后更新**: 2026-05-02  
 **维护者**: AI 技术团队
