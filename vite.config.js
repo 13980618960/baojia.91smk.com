@@ -11,12 +11,7 @@ export default defineConfig({
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
   },
   build: {
-    target: 'esnext',
-    rollupOptions: {
-      output: {
-        format: 'es'
-      }
-    },
+    target: 'es2015',
     commonjsOptions: {
       include: [/node_modules/]
     }
