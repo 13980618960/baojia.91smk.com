@@ -93,6 +93,34 @@ e:\www\wwwroot\
 
 ---
 
+## 📋 项目信息
+
+| 项目 | 标题 | 仓库地址 | 分支 |
+|------|------|----------|------|
+| 前端 | baojia.91smk.com前端管理后台 | `git@github.com:13980618960/baojia.91smk.com.git` | main |
+| 后端 | baojiaapi.91smk.com后端API | `git@github.com:13980618960/baojiaapi.91smk.com.git` | main |
+
+---
+
+## ⚡ 快速同步命令
+
+### 前端更新
+```bash
+cd /www/wwwroot/baojia.91smk.com && git pull
+```
+
+### 后端更新
+```bash
+cd /www/wwwroot/baojiaapi.91smk.com && git pull && npm install --production && pm2 restart baojia-api
+```
+
+### Vue/React 项目（需要打包）
+```bash
+cd /www/wwwroot/baojia.91smk.com && git pull && npm install --production && npm run build
+```
+
+---
+
 ## 🧠 宝塔自动部署脚本
 
 ### 前端自动部署（宝塔）
