@@ -623,9 +623,16 @@ const form = reactive({
 const fetchFundAccounts = async () => {
   try {
     const res = await request.get('/pricing/funds')
-    fundAccounts.value = res.data.list || []
+    console.log('资金账户接口响应:', res)
+    console.log('资金账户列表数据:', res.data?.list)
+    fundAccounts.value = res.data?.list || []
+    console.log('fundAccounts赋值后:', fundAccounts.value)
+    if (!res.data?.list || res.data.list.length === 0) {
+      console.warn('资金账户列表为空，请检查数据库是否有数据')
+    }
   } catch (error) {
-    console.error(error)
+    console.error('获取资金账户失败:', error)
+    ElMessage.error('获取资金账户失败，请检查登录状态')
   }
 }
 
